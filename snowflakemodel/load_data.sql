@@ -74,3 +74,10 @@ when not matched then insert (
     raw1.country
     );
 
+
+
+
+-- Resume both tasks.
+alter task raw_table_to_enhance_table resume;
+ALTER TASK raw_table_to_enhance_table SET SCHEDULE = '0 2 * * * UTC';
+alter task raw_table_to_enhance_table SUSPEND;
