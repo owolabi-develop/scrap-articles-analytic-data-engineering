@@ -12,6 +12,8 @@ CREATE OR REPLACE DATABASE LATESTARTICLES;
 DROP SCHEMA LATESTARTICLES.PUBLIC;
 -- CREATE RAW_NEWSARTICLES
 CREATE OR REPLACE SCHEMA LATESTARTICLES.RAW_NEWSARTICLES;
+
+create or replace schema enhance_NEWSARTICLES;
 CREATE OR REPLACE SCHEMA LATESTARTICLES.ingestpip;
 
 USE SCHEMA LATESTARTICLES.RAW_NEWSARTICLES;
@@ -32,14 +34,28 @@ CREATE or replace STAGE articles_s3_stage
 -- create table table to load raw json file
 
 create or replace table LATESTARTICLES.RAW_NEWSARTICLES.raw (
-    articles variant
+    id number default enhance1.NEXTVAL,
+    filename varchar,
+    file_row_number int,
+    file_content_key varchar,
+    file_last_modified timestamp_ntz,
+    start_scan_time timestamp_ltz,
+    headlines varchar(255),
+    links string,
+    image string,
+    summary string,
+    retrieval_date Date,
+    website string,
+    country string
 );
 
 
-
-
+--- create  SEQUENCE 
+CREATE OR REPLACE SEQUENCE enhance1;
  --- create table to load clean json data
-create or replace table LATESTARTICLES.RAW_NEWSARTICLES.enhance(
+create or replace table LATESTARTICLES.enhance_NEWSARTICLES.enhance(
+    id number default enhance1.NEXTVAL,
+    file_row_number int,
     headlines varchar(255),
     links string,
     image string,
