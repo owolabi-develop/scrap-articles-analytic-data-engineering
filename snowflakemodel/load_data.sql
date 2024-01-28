@@ -4,7 +4,7 @@ list @articles_s3_stage/;
 
 use role ACCOUNTADMIN;
 -- auto ingest data snowpip
---create or replace pipe LATESTARTICLES.ingestpip.article_pips auto_ingest=true as
+create or replace pipe LATESTARTICLES.ingestpip.article_pips auto_ingest=true as
 copy into LATESTARTICLES.RAW_NEWSARTICLES.raw(
     filename,
     file_row_number,
@@ -74,4 +74,3 @@ when not matched then insert (
     raw1.country
     );
 
-truncate table LATESTARTICLES.RAW_NEWSARTICLES.raw;
