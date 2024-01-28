@@ -8,7 +8,9 @@ create or replace pipe LATESTARTICLES.ingestpip.article_pips auto_ingest=true as
 copy into LATESTARTICLES.RAW_NEWSARTICLES.raw
     from @articles_s3_stage/
     FILE_FORMAT = (FORMAT_NAME = article_csv_format);
-   
+    
+-- show pip to copy the sqs arn
+SHOW PIPES;
 
 SELECT 
     articles:headlines::STRING AS headlines,
@@ -22,4 +24,3 @@ FROM LATESTARTICLES.RAW_NEWSARTICLES.raw;
 
 
 
-SHOW PIPES;
