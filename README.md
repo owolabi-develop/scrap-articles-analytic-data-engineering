@@ -1,6 +1,6 @@
 ## Data engineering project
 
-## architecture diagram 
+## Architecture diagram 
 <img width="1882" alt="project1" src="https://github.com/owolabi-develop/scrap-articles-analytic/assets/94055941/a0968e43-fe0e-4406-997f-182d82e82cc4">
 
  ## Snowflake visualization dashboard 
