@@ -1,6 +1,6 @@
 ## Data engineering project
 The project scrap data daily from multiple website extract the data to folder called lastestarticles with almost 50 to 
-100 csv files then transform it to a single Json file na transform.json in the transfer folder and then upload to s3 for further processing 
+100 csv files then transform it to a single Json file call transform.json in the transfer folder and then upload to s3 for further processing 
 
 ## Tech stack
 1. docker
